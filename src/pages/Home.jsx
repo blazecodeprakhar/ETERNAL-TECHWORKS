@@ -390,10 +390,11 @@ const Home = () => {
                       </button>
                     </div>
                     <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{selectedLayer.desc}</p>
-                    <div className="grid grid-cols-2 gap-2 pt-2 text-[10px] font-mono border-t border-neutral-200">
+                    <div className="grid grid-cols-1 gap-1.5 pt-2 text-[10px] font-mono border-t border-neutral-200">
                       {Object.entries(selectedLayer.specs).map(([key, value]) => (
-                        <div key={key}>
-                          <span className="text-neutral-400">{key}:</span> <span className="text-neutral-700 font-semibold">{value}</span>
+                        <div key={key} className="flex justify-between items-center">
+                          <span className="text-neutral-450">{key}:</span>
+                          <span className="text-neutral-700 font-semibold text-right">{value}</span>
                         </div>
                       ))}
                     </div>
