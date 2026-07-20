@@ -111,10 +111,10 @@ const Home = () => {
               </div>
 
               {/* Interactive Area */}
-              <div className="relative w-full h-[400px] flex items-center justify-center bg-radial from-neutral-50 to-white rounded-2xl border border-neutral-150 shadow-inner overflow-hidden select-none">
+              <div className="relative w-full aspect-[500/350] bg-radial from-neutral-50 to-white rounded-2xl border border-neutral-150 shadow-inner overflow-hidden select-none">
                 
                 {/* SVG 3D Isometric stack */}
-                <svg viewBox="0 0 500 350" className="w-full max-w-[440px] h-auto z-10 transition-all duration-500">
+                <svg viewBox="0 0 500 350" className="w-full h-full absolute inset-0 z-10 transition-all duration-500">
                   <defs>
                     <linearGradient id="topSkinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#38bdf8" />
