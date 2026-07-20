@@ -8,6 +8,8 @@ import Products from './pages/Products';
 import Technical from './pages/Technical';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -38,6 +40,8 @@ function App() {
             <Route path="/technical" element={<Technical />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
 

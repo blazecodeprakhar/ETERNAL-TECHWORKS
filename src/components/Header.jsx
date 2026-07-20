@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Award } from 'lucide-react';
 import logoIcon from '../assets/logo.png';
+import logoText from '../assets/logo-text.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,16 +22,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo Brand Link */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <img src={logoIcon} alt="Eternal Techworks Logo" className="w-12 h-12 text-primary-600 transition-transform group-hover:scale-105 duration-350" />
-            <div>
-              <span className="text-xl font-extrabold tracking-tight text-neutral-900 block">
-                ETERNAL <span className="text-primary-600">TECHWORKS</span>
-              </span>
-              <span className="text-[10px] text-neutral-500 tracking-widest uppercase block -mt-1 font-semibold">
-                Insulate. Build. Deliver.
-              </span>
-            </div>
+          <Link to="/" className="flex items-center space-x-2.5 group">
+            <img src={logoIcon} alt="Eternal Techworks Icon" className="h-9 w-auto transition-transform group-hover:scale-105 duration-300" />
+            <img src={logoText} alt="Eternal Techworks" className="h-6.5 w-auto" />
           </Link>
 
           {/* Desktop Nav Links */}

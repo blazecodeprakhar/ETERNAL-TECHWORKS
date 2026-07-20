@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoIcon from '../assets/logo.png';
+import logoText from '../assets/logo-text.png';
 
 const Footer = () => {
   return (
@@ -11,12 +12,9 @@ const Footer = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center space-x-3">
-              <img src={logoIcon} alt="Logo" className="w-10 h-10 text-primary-600" />
-              <div>
-                <span className="text-base font-extrabold text-neutral-900 tracking-wide block">ETERNAL TECHWORKS</span>
-                <span className="text-[9px] uppercase tracking-widest text-neutral-500 font-bold block">Insulate. Build. Deliver.</span>
-              </div>
+            <div className="flex items-center space-x-2.5">
+              <img src={logoIcon} alt="Logo Icon" className="h-8 w-auto text-primary-600" />
+              <img src={logoText} alt="Eternal Techworks" className="h-6 w-auto" />
             </div>
             <p className="text-neutral-500 font-light leading-relaxed max-w-sm">
               A specialized industrial building solutions manufacturer driven by over 5+ years of combined experience and strict conformance to quality standards.
@@ -76,8 +74,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Eternal Techworks. All Rights Reserved. Manufactured in Pune, Maharashtra.
           </p>
           <div className="flex space-x-6 text-neutral-500 font-semibold">
-            <span className="hover:text-primary-600 cursor-pointer">Terms of Service</span>
-            <span className="hover:text-white cursor-pointer">Privacy Policy</span>
+            <Link to="/terms" className="hover:text-primary-600 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-primary-600 transition-colors">Privacy Policy</Link>
           </div>
         </div>
 
