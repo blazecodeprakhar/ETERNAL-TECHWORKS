@@ -41,7 +41,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap gap-2">
               <a 
-                href="https://www.instagram.com/eternaltechworks?igsh=MWpkaXlmMzZmcHdydA==" 
+                href="https://www.instagram.com/eternaltechworks" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white border border-neutral-300 hover:border-primary-500/50 px-3.5 py-2 rounded-xl text-neutral-700 hover:text-primary-600 flex items-center space-x-2 transition-all shadow-xs"
