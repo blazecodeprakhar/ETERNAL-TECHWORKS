@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, ExternalLink, ChevronDown, CheckCircle } from 'lucide-react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -40,8 +41,9 @@ const Contact = () => {
       </section>
 
       {/* CORE FORM & INFORMATION HUB */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+      <ScrollReveal duration={950}>
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* LEFT COLUMN: INFO & CHANNELS (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
@@ -239,6 +241,7 @@ const Contact = () => {
 
         </div>
       </section>
+    </ScrollReveal>
 
     </div>
   );

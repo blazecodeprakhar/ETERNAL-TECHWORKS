@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Flame, Building, Wrench, Settings, ArrowRight, Award, Zap, Thermometer, CheckCircle, Layers } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Home = () => {
   const [exploded, setExploded] = useState(true);
@@ -407,132 +408,138 @@ const Home = () => {
       </section>
 
       {/* CORE PILLARS GRID */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-14">
-          <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Core Expertise</span>
-          <h2 className="text-3xl font-extrabold text-neutral-950">Industrial Solutions Portfolio</h2>
-          <p className="text-sm text-neutral-600 max-w-2xl mx-auto font-light">
-            We operate modern structural fabrication and panel assembly yards, delivering consistent insulation specs across Pune and beyond.
-          </p>
-        </div>
+      <ScrollReveal duration={900}>
+        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-14">
+            <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Core Expertise</span>
+            <h2 className="text-3xl font-extrabold text-neutral-950">Industrial Solutions Portfolio</h2>
+            <p className="text-sm text-neutral-600 max-w-2xl mx-auto font-light">
+              We operate modern structural fabrication and panel assembly yards, delivering consistent insulation specs across Pune and beyond.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {[
-            {
-              title: 'Insulation Solutions',
-              desc: 'Thermal & Acoustic panel insulation boards, PUR, PIR, Rockwool cores, and radiant heat foils.',
-              icon: Thermometer,
-              link: '/products'
-            },
-            {
-              title: 'Custom Prefab Cabins',
-              desc: 'Custom security cabins, modular site control rooms, shelter offices, and container offices.',
-              icon: Building,
-              link: '/services'
-            },
-            {
-              title: 'Installation Services',
-              desc: 'Professional panel mounting, double overlapping overlaps, leakproof joint erection, and support purlins.',
-              icon: Wrench,
-              link: '/services'
-            },
-            {
-              title: 'Structural Steel Fabrication',
-              desc: 'Heavy industrial frame beams, load bearing trusses, framework designs, and roof supports.',
-              icon: Settings,
-              link: '/services'
-            }
-          ].map((pillar, idx) => (
-            <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:scale-102 transition-all duration-300 flex flex-col justify-between group hover:border-primary-500/20">
-              <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
-                  <pillar.icon className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'Insulation Solutions',
+                desc: 'Thermal & Acoustic panel insulation boards, PUR, PIR, Rockwool cores, and radiant heat foils.',
+                icon: Thermometer,
+                link: '/products'
+              },
+              {
+                title: 'Custom Prefab Cabins',
+                desc: 'Custom security cabins, modular site control rooms, shelter offices, and container offices.',
+                icon: Building,
+                link: '/services'
+              },
+              {
+                title: 'Installation Services',
+                desc: 'Professional panel mounting, double overlapping overlaps, leakproof joint erection, and support purlins.',
+                icon: Wrench,
+                link: '/services'
+              },
+              {
+                title: 'Structural Steel Fabrication',
+                desc: 'Heavy industrial frame beams, load bearing trusses, framework designs, and roof supports.',
+                icon: Settings,
+                link: '/services'
+              }
+            ].map((pillar, idx) => (
+              <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:scale-102 transition-all duration-300 flex flex-col justify-between group hover:border-primary-500/20">
+                <div className="space-y-4">
+                  <div className="w-10 h-10 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
+                    <pillar.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">{pillar.title}</h3>
+                  <p className="text-xs text-neutral-500 leading-relaxed font-light">{pillar.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">{pillar.title}</h3>
-                <p className="text-xs text-neutral-500 leading-relaxed font-light">{pillar.desc}</p>
+                <Link 
+                  to={pillar.link} 
+                  className="mt-6 inline-flex items-center text-xs font-bold text-primary-600 hover:text-primary-500 space-x-1"
+                >
+                  <span>Read More</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
               </div>
-              <Link 
-                to={pillar.link} 
-                className="mt-6 inline-flex items-center text-xs font-bold text-primary-600 hover:text-primary-500 space-x-1"
-              >
-                <span>Read More</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* QUICK SHOWCASE SECTION WITH PLACEHOLDERS */}
-      <section className="py-20 bg-neutral-100 border-y border-neutral-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Quality Compliant</span>
-              <h2 className="text-3xl font-extrabold text-neutral-900 leading-tight">Advanced Manufacturing Facility in Pune</h2>
-              <p className="text-xs text-neutral-600 leading-relaxed font-light">
-                Our plant utilizes advanced continuous line profiling equipment, maintaining uniform core densities of 40-45 kg/m³ for PUF/PIR and 100 kg/m³ for Rockwool. Every batch complies with national IS-12436 insulation standard metrics.
-              </p>
-              
-              <ul className="space-y-3 text-xs font-semibold text-neutral-700">
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />
-                  <span>100% CFC and HCFC-free raw chemicals</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />
-                  <span>Certified Fire Retardant PIR options</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />
-                  <span>Custom panel lengths up to 15 meters</span>
-                </li>
-              </ul>
-
-              <Link 
-                to="/about" 
-                className="inline-flex bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md shadow-primary-500/10 hover:shadow-primary-500/20"
-              >
-                About Our Growth Journey
-              </Link>
-            </div>
+      <ScrollReveal duration={950} delay={50}>
+        <section className="py-20 bg-neutral-100 border-y border-neutral-200/60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <ImagePlaceholder category="puf" title="Insulated PUF Roof Panels" height="h-56" />
-              <ImagePlaceholder category="rockwool" title="Fireproof Mineral Wool Panels" height="h-56" />
-              <ImagePlaceholder category="prefab" title="Prefab Cabin Structures" height="h-56" />
-              <ImagePlaceholder category="accessories" title="General Trim Accessories" height="h-56" />
-            </div>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-5 space-y-6">
+                <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Quality Compliant</span>
+                <h2 className="text-3xl font-extrabold text-neutral-900 leading-tight">Advanced Manufacturing Facility in Pune</h2>
+                <p className="text-xs text-neutral-600 leading-relaxed font-light">
+                  Our plant utilizes advanced continuous line profiling equipment, maintaining uniform core densities of 40-45 kg/m³ for PUF/PIR and 100 kg/m³ for Rockwool. Every batch complies with national IS-12436 insulation standard metrics.
+                </p>
+                
+                <ul className="space-y-3 text-xs font-semibold text-neutral-700">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-500" />
+                    <span>100% CFC and HCFC-free raw chemicals</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-500" />
+                    <span>Certified Fire Retardant PIR options</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-500" />
+                    <span>Custom panel lengths up to 15 meters</span>
+                  </li>
+                </ul>
 
-        </div>
-      </section>
+                <Link 
+                  to="/about" 
+                  className="inline-flex bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md shadow-primary-500/10 hover:shadow-primary-500/20"
+                >
+                  About Our Growth Journey
+                </Link>
+              </div>
+              
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ImagePlaceholder category="puf" title="Insulated PUF Roof Panels" height="h-56" />
+                <ImagePlaceholder category="rockwool" title="Fireproof Mineral Wool Panels" height="h-56" />
+                <ImagePlaceholder category="prefab" title="Prefab Cabin Structures" height="h-56" />
+                <ImagePlaceholder category="accessories" title="General Trim Accessories" height="h-56" />
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* CTA HUB */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white border border-neutral-200/80 rounded-3xl my-16 shadow-xs relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.05),transparent_70%)]" />
-        <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-neutral-900">Need Custom Technical Designs?</h2>
-          <p className="text-xs text-neutral-600 font-light leading-relaxed">
-            Our structural engineering desk in Kharadi, Pune provides full CAD structural drawings, calculation metrics, and specific load-span tables customized exactly to your architectural scope.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Link 
-              to="/contact" 
-              className="w-full sm:w-auto bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all shadow-md"
-            >
-              Contact Our Sales Desk
-            </Link>
-            <Link 
-              to="/technical" 
-              className="w-full sm:w-auto bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all border border-neutral-300"
-            >
-              Compare Core Properties
-            </Link>
+      <ScrollReveal duration={900}>
+        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white border border-neutral-200/80 rounded-3xl my-16 shadow-xs relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.05),transparent_70%)]" />
+          <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-neutral-900">Need Custom Technical Designs?</h2>
+            <p className="text-xs text-neutral-600 font-light leading-relaxed">
+              Our structural engineering desk in Kharadi, Pune provides full CAD structural drawings, calculation metrics, and specific load-span tables customized exactly to your architectural scope.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <Link 
+                to="/contact" 
+                className="w-full sm:w-auto bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all shadow-md"
+              >
+                Contact Our Sales Desk
+              </Link>
+              <Link 
+                to="/technical" 
+                className="w-full sm:w-auto bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all border border-neutral-300"
+              >
+                Compare Core Properties
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
     </div>
   );

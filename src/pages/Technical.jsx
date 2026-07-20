@@ -1,5 +1,6 @@
 import React from 'react';
 import { Info, BarChart2, Flame, ShieldAlert, CheckSquare } from 'lucide-react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Technical = () => {
   const comparativeInsulation = [
@@ -28,8 +29,9 @@ const Technical = () => {
       </section>
 
       {/* CORE SPECIFICATIONS SHEET */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <ScrollReveal duration={950}>
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* TECHNICAL DATA TABLE (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
@@ -141,35 +143,38 @@ const Technical = () => {
 
         </div>
       </section>
+    </ScrollReveal>
 
       {/* CORE BENEFITS GRID */}
-      <section className="py-16 bg-white border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-xl font-extrabold text-neutral-900 text-center mb-10">Conforming Performance Advantages</h3>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-600 leading-relaxed font-light">
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
-              <h4 className="font-bold text-neutral-900 text-sm">Low K-Value</h4>
-              <p>Maintains a thermal conductivity coefficient of 0.023 W/m·K, which prevents external heat infiltration and maintains cooling load stability.</p>
-            </div>
+      <ScrollReveal duration={900}>
+        <section className="py-16 bg-white border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 className="text-xl font-extrabold text-neutral-900 text-center mb-10">Conforming Performance Advantages</h3>
             
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
-              <h4 className="font-bold text-neutral-900 text-sm">Closed Cell Percentage</h4>
-              <p>Over 90% closed cells completely isolates the foam core from absorbing atmospheric moisture, maintaining steady thermal insulation over decades.</p>
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-600 leading-relaxed font-light">
+              <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
+                <h4 className="font-bold text-neutral-900 text-sm">Low K-Value</h4>
+                <p>Maintains a thermal conductivity coefficient of 0.023 W/m·K, which prevents external heat infiltration and maintains cooling load stability.</p>
+              </div>
+              
+              <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
+                <h4 className="font-bold text-neutral-900 text-sm">Closed Cell Percentage</h4>
+                <p>Over 90% closed cells completely isolates the foam core from absorbing atmospheric moisture, maintaining steady thermal insulation over decades.</p>
+              </div>
 
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
-              <h4 className="font-bold text-neutral-900 text-sm">Mechanical Resistance</h4>
-              <p>Withstands high compressive loading of 2.10 kg/cm², ensuring roof panels are self-supporting and safe for periodic maintenance footfalls.</p>
-            </div>
+              <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
+                <h4 className="font-bold text-neutral-900 text-sm">Mechanical Resistance</h4>
+                <p>Withstands high compressive loading of 2.10 kg/cm², ensuring roof panels are self-supporting and safe for periodic maintenance footfalls.</p>
+              </div>
 
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
-              <h4 className="font-bold text-neutral-900 text-sm">Eco-Conformance</h4>
-              <p>Injected using water/hydrocarbon blowing systems containing zero ozone-depleting substances, satisfying environmental project guidelines.</p>
+              <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
+                <h4 className="font-bold text-neutral-900 text-sm">Eco-Conformance</h4>
+                <p>Injected using water/hydrocarbon blowing systems containing zero ozone-depleting substances, satisfying environmental project guidelines.</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
     </div>
   );

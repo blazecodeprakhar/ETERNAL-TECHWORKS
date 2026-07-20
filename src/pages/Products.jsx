@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Layers, Flame, CheckCircle, FlameKindling, Info, Settings, ShieldAlert, Sparkles } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Products = () => {
   const [activeTab, setActiveTab] = useState('pur');
@@ -38,8 +39,9 @@ const Products = () => {
       </section>
 
       {/* CORE WORKSPACE */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <ScrollReveal duration={950}>
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT SIDEBAR: SELECTORS */}
           <div className="lg:col-span-3 space-y-3">
@@ -310,6 +312,7 @@ const Products = () => {
           </div>
         </div>
       </section>
+    </ScrollReveal>
 
     </div>
   );

@@ -60,45 +60,65 @@ const Header = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-neutral-500 hover:text-neutral-900 p-2 rounded-lg focus:outline-none"
+              className="text-neutral-550 hover:text-primary-600 p-2 rounded-xl focus:outline-none flex flex-col justify-center items-center w-10 h-10 relative z-50 transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <div className="w-6 h-5 flex flex-col justify-between items-center relative">
+                <span className={`block w-6 h-0.5 bg-current rounded-full transition-all duration-300 absolute ${isMenuOpen ? 'rotate-45 top-2.5' : 'top-0'}`} />
+                <span className={`block w-6 h-0.5 bg-current rounded-full transition-all duration-200 absolute top-2.5 ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100'}`} />
+                <span className={`block w-6 h-0.5 bg-current rounded-full transition-all duration-300 absolute ${isMenuOpen ? '-rotate-45 top-2.5' : 'top-5'}`} />
+              </div>
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Nav Drawer */}
-      {isMenuOpen && (
-        <div className="md:hidden glass border-b border-neutral-200">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-3 rounded-xl text-base font-semibold transition-colors ${
-                    isActive
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
+      <div 
+        className={`md:hidden absolute top-20 left-0 right-0 bg-white/96 backdrop-blur-md shadow-lg border-b border-neutral-200/80 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform origin-top ${
+          isMenuOpen 
+            ? 'opacity-100 translate-y-0 scale-y-100 pointer-events-auto' 
+            : 'opacity-0 -translate-y-4 scale-y-95 pointer-events-none'
+        }`}
+      >
+        <div className="px-4 pt-3 pb-6 space-y-1.5 sm:px-6 text-center">
+          {navLinks.map((link, idx) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsMenuOpen(false)}
+              style={{
+                transitionDelay: isMenuOpen ? `${idx * 40}ms` : '0ms'
+              }}
+              className={({ isActive }) =>
+                `block px-4 py-3 rounded-xl text-sm font-bold transition-all duration-300 transform ${
+                  isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                } ${
+                  isActive
+                    ? 'text-primary-600 bg-primary-50/80 border border-primary-500/10'
+                    : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50 border border-transparent'
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <div 
+            style={{ transitionDelay: isMenuOpen ? `${navLinks.length * 40}ms` : '0ms' }}
+            className={`pt-4 transition-all duration-300 transform ${
+              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+            }`}
+          >
             <Link 
               to="/contact" 
               onClick={() => setIsMenuOpen(false)}
-              className="mt-4 w-full bg-primary-600 hover:bg-primary-500 text-white block px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-center"
+              className="w-full bg-primary-600 hover:bg-primary-500 active:bg-primary-700 text-white block px-4 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-center shadow-md shadow-primary-500/10 active:scale-98 transition-all duration-200"
             >
               Get Custom Quote
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

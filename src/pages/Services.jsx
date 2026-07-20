@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrench, Building2, Layers, Settings, ChevronRight, CheckCircle } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Services = () => {
   const servicesList = [
@@ -48,72 +49,76 @@ const Services = () => {
       </section>
 
       {/* DETAILED SERVICES LIST */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
-          {servicesList.map((srv, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white border border-neutral-200 rounded-3xl p-8 shadow-xs hover:shadow-lg hover:-translate-y-0.5 hover:border-primary-500/20 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              {/* Text Side (7 cols) */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-2xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
-                    <srv.icon className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-xl font-extrabold text-neutral-900">{srv.title}</h2>
-                </div>
-
-                <p className="text-xs text-neutral-500 leading-relaxed font-light">{srv.desc}</p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-neutral-750">
-                  {srv.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Graphic Side (5 cols) */}
-              <div className="lg:col-span-5">
-                <ImagePlaceholder category="services" title={srv.title} height="h-60" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* INDUSTRIES SECTOR GRID */}
-      <section className="py-16 bg-neutral-105 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-12">
-            <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Sectors We Support</span>
-            <h2 className="text-3xl font-extrabold text-neutral-900">Industries Served</h2>
-            <p className="text-sm text-neutral-500 max-w-2xl mx-auto font-light">
-              Providing thermal safety and structural reliability across diverse commercial fields.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sectors.map((sec, idx) => (
+      <ScrollReveal duration={950}>
+        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-12">
+            {servicesList.map((srv, idx) => (
               <div 
                 key={idx} 
-                className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-xs flex justify-between items-center group hover:border-primary-500/20 hover:scale-102 hover:shadow-md transition-all duration-300"
+                className="bg-white border border-neutral-200 rounded-3xl p-8 shadow-xs hover:shadow-lg hover:-translate-y-0.5 hover:border-primary-500/20 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
-                <div>
-                  <h4 className="text-xs font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">
-                    {sec.name}
-                  </h4>
-                  <p className="text-[10px] text-neutral-450 mt-1">{sec.info}</p>
+                {/* Text Side (7 cols) */}
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
+                      <srv.icon className="w-6 h-6" />
+                    </div>
+                    <h2 className="text-xl font-extrabold text-neutral-900">{srv.title}</h2>
+                  </div>
+
+                  <p className="text-xs text-neutral-500 leading-relaxed font-light">{srv.desc}</p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-neutral-750">
+                    {srv.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all" />
+
+                {/* Graphic Side (5 cols) */}
+                <div className="lg:col-span-5">
+                  <ImagePlaceholder category="services" title={srv.title} height="h-60" />
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* INDUSTRIES SECTOR GRID */}
+      <ScrollReveal duration={900}>
+        <section className="py-16 bg-neutral-105 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center space-y-4 mb-12">
+              <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Sectors We Support</span>
+              <h2 className="text-3xl font-extrabold text-neutral-900">Industries Served</h2>
+              <p className="text-sm text-neutral-500 max-w-2xl mx-auto font-light">
+                Providing thermal safety and structural reliability across diverse commercial fields.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {sectors.map((sec, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-xs flex justify-between items-center group hover:border-primary-500/20 hover:scale-102 hover:shadow-md transition-all duration-300"
+                >
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">
+                      {sec.name}
+                    </h4>
+                    <p className="text-[10px] text-neutral-450 mt-1">{sec.info}</p>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
     </div>
   );
