@@ -14,7 +14,7 @@ const Technical = () => {
   ];
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">
@@ -148,22 +148,22 @@ const Technical = () => {
           <h3 className="text-xl font-extrabold text-neutral-900 text-center mb-10">Conforming Performance Advantages</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-600 leading-relaxed font-light">
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3">
+            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
               <h4 className="font-bold text-neutral-900 text-sm">Low K-Value</h4>
               <p>Maintains a thermal conductivity coefficient of 0.023 W/m·K, which prevents external heat infiltration and maintains cooling load stability.</p>
             </div>
             
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3">
+            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
               <h4 className="font-bold text-neutral-900 text-sm">Closed Cell Percentage</h4>
               <p>Over 90% closed cells completely isolates the foam core from absorbing atmospheric moisture, maintaining steady thermal insulation over decades.</p>
             </div>
 
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3">
+            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
               <h4 className="font-bold text-neutral-900 text-sm">Mechanical Resistance</h4>
               <p>Withstands high compressive loading of 2.10 kg/cm², ensuring roof panels are self-supporting and safe for periodic maintenance footfalls.</p>
             </div>
 
-            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3">
+            <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
               <h4 className="font-bold text-neutral-900 text-sm">Eco-Conformance</h4>
               <p>Injected using water/hydrocarbon blowing systems containing zero ozone-depleting substances, satisfying environmental project guidelines.</p>
             </div>

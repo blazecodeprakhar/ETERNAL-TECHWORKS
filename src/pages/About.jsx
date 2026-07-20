@@ -18,7 +18,7 @@ const About = () => {
   ];
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* HEADER HERO */}
       <section className="bg-white border-b border-neutral-200/80 py-16">
@@ -112,7 +112,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreValues.map((val, idx) => (
-              <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-xs space-y-4 hover:-translate-y-1 transition-all duration-300">
+              <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-xs space-y-4 hover:-translate-y-1 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
                 <div className="w-10 h-10 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
                   <val.icon className="w-5 h-5" />
                 </div>

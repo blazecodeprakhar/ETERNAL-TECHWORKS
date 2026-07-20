@@ -38,7 +38,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-primary-50/20 to-neutral-50 border-b border-neutral-200/50">
@@ -47,7 +47,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Hero Content Column */}
-          <div className="lg:col-span-6 space-y-8 text-center lg:text-left">
+          <div className="lg:col-span-6 space-y-8 text-center lg:text-left animate-fade-in-up">
             <div className="inline-flex items-center space-x-2 bg-white border border-neutral-200 shadow-xs rounded-full px-4 py-1.5 text-xs text-primary-600 font-bold">
               <Award className="w-4 h-4 text-primary-500" />
               <span>ISO 9001:2015 &amp; IS-12436 Certified Manufacturing</span>
@@ -97,7 +97,7 @@ const Home = () => {
           </div>
 
           {/* Interactive PUF Panel Explode-Viewer */}
-          <div className="lg:col-span-6 relative mt-6 lg:mt-0 animate-fadeIn">
+          <div className="lg:col-span-6 relative mt-6 lg:mt-0 animate-scale-up">
             <div className="bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full blur-2xl pointer-events-none" />
               
@@ -443,7 +443,7 @@ const Home = () => {
               link: '/services'
             }
           ].map((pillar, idx) => (
-            <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:border-primary-500/20">
+            <div key={idx} className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:scale-102 transition-all duration-300 flex flex-col justify-between group hover:border-primary-500/20">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600">
                   <pillar.icon className="w-5 h-5" />

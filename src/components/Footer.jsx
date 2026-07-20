@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-2.5">
               <img src={logoIcon} alt="Logo Icon" className="h-8 w-auto text-primary-600" />
-              <img src={logoText} alt="Eternal Techworks" className="h-6 w-auto" />
+              <img src={logoText} alt="Eternal Techworks" className="h-12 w-auto" />
             </div>
             <p className="text-neutral-500 font-light leading-relaxed max-w-sm">
               A specialized industrial building solutions manufacturer driven by over 5+ years of combined experience and strict conformance to quality standards.

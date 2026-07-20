@@ -24,7 +24,7 @@ const Header = () => {
           {/* Logo Brand Link */}
           <Link to="/" className="flex items-center space-x-2.5 group">
             <img src={logoIcon} alt="Eternal Techworks Icon" className="h-9 w-auto transition-transform group-hover:scale-105 duration-300" />
-            <img src={logoText} alt="Eternal Techworks" className="h-6.5 w-auto" />
+            <img src={logoText} alt="Eternal Techworks" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop Nav Links */}

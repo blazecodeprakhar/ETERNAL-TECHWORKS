@@ -26,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

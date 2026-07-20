@@ -34,7 +34,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">
@@ -53,7 +53,7 @@ const Services = () => {
           {servicesList.map((srv, idx) => (
             <div 
               key={idx} 
-              className="bg-white border border-neutral-200 rounded-3xl p-8 shadow-xs hover:shadow-sm transition-shadow grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              className="bg-white border border-neutral-200 rounded-3xl p-8 shadow-xs hover:shadow-lg hover:-translate-y-0.5 hover:border-primary-500/20 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
               {/* Text Side (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
@@ -100,7 +100,7 @@ const Services = () => {
             {sectors.map((sec, idx) => (
               <div 
                 key={idx} 
-                className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-xs flex justify-between items-center group hover:border-primary-500/20 transition-all duration-300"
+                className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-xs flex justify-between items-center group hover:border-primary-500/20 hover:scale-102 hover:shadow-md transition-all duration-300"
               >
                 <div>
                   <h4 className="text-xs font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">

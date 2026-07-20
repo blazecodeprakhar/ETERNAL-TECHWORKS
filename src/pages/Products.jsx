@@ -24,7 +24,7 @@ const Products = () => {
   ];
 
   return (
-    <div className="animate-fadeIn bg-neutral-50 text-neutral-800">
+    <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">
@@ -64,7 +64,7 @@ const Products = () => {
             
             {/* TAB 1: PUF/PIR ROOF PANELS */}
             {activeTab === 'pur' && (
-              <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-8 animate-fade-in-up">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                   <div className="md:col-span-7 space-y-4">
                     <span className="text-xs font-bold text-primary-600 bg-primary-50 border border-primary-100 px-2.5 py-1 rounded-md">Continuous Profiling</span>
@@ -148,7 +148,7 @@ const Products = () => {
 
             {/* TAB 2: ROCKWOOL FIREPROOF PANELS */}
             {activeTab === 'rockwool' && (
-              <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-8 animate-fade-in-up">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                   <div className="md:col-span-7 space-y-4">
                     <span className="text-xs font-bold text-primary-600 bg-primary-50 border border-primary-100 px-2.5 py-1 rounded-md">Safety Grade</span>
@@ -236,7 +236,7 @@ const Products = () => {
 
             {/* TAB 3: OTHER INSULATION */}
             {activeTab === 'other' && (
-              <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-8 animate-fade-in-up">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                   <div className="md:col-span-7 space-y-6">
                     <h3 className="text-2xl font-extrabold text-neutral-900">XPS, EPS Boards &amp; Foil Insulation</h3>
@@ -273,7 +273,7 @@ const Products = () => {
 
             {/* TAB 4: ACCESSORIES & FLASHING */}
             {activeTab === 'accessories' && (
-              <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-8 animate-fade-in-up">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                   <div className="md:col-span-7 space-y-4">
                     <h3 className="text-2xl font-extrabold text-neutral-900">General flashing &amp; Coving Components</h3>
