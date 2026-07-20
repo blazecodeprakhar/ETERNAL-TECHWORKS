@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Flame, Building, Wrench, Settings, ArrowRight, Award, Zap, Thermometer, CheckCircle, Layers } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 
 const Home = () => {
-  const [exploded, setExploded] = useState(false);
+  const [exploded, setExploded] = useState(true);
   const [selectedLayer, setSelectedLayer] = useState(null);
+  const [isAutoCycling, setIsAutoCycling] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoCycling) return;
+    const interval = setInterval(() => {
+      setExploded(prev => !prev);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [isAutoCycling]);
 
   const layers = [
     {
@@ -99,7 +108,10 @@ const Home = () => {
                   <p className="text-[11px] text-neutral-500 font-light">Interactive engineering assembly view</p>
                 </div>
                 <button
-                  onClick={() => setExploded(!exploded)}
+                  onClick={() => {
+                    setExploded(!exploded);
+                    setIsAutoCycling(false);
+                  }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-xs ${
                     exploded 
                       ? 'bg-primary-600 text-white' 
@@ -182,7 +194,7 @@ const Home = () => {
 
                   {/* 3D Bottom Sheet Layer */}
                   <g 
-                    onClick={() => setSelectedLayer(layers[2])} 
+                    onClick={() => { setSelectedLayer(layers[2]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'bottom' ? 'url(#glowFilter)' : ''}
                   >
@@ -212,7 +224,7 @@ const Home = () => {
 
                   {/* 3D Core Foam Layer */}
                   <g 
-                    onClick={() => setSelectedLayer(layers[1])} 
+                    onClick={() => { setSelectedLayer(layers[1]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'core' ? 'url(#glowFilter)' : ''}
                   >
@@ -235,7 +247,7 @@ const Home = () => {
 
                   {/* 3D Top Metal Sheet Layer */}
                   <g 
-                    onClick={() => setSelectedLayer(layers[0])} 
+                    onClick={() => { setSelectedLayer(layers[0]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'top' ? 'url(#glowFilter)' : ''}
                   >
@@ -314,7 +326,7 @@ const Home = () => {
                 {/* Floating Callouts */}
                 {/* 1. Top Sheet */}
                 <div 
-                  onClick={() => setSelectedLayer(layers[0])}
+                  onClick={() => { setSelectedLayer(layers[0]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute top-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'top' 
                       ? 'border-primary-500 ring-2 ring-primary-500/10 shadow-md' 
@@ -328,7 +340,7 @@ const Home = () => {
 
                 {/* 2. Core Foam */}
                 <div 
-                  onClick={() => setSelectedLayer(layers[1])}
+                  onClick={() => { setSelectedLayer(layers[1]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute top-[40%] right-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'core' 
                       ? 'border-amber-500 ring-2 ring-amber-500/10 shadow-md' 
@@ -342,7 +354,7 @@ const Home = () => {
 
                 {/* 3. Bottom Sheet */}
                 <div 
-                  onClick={() => setSelectedLayer(layers[2])}
+                  onClick={() => { setSelectedLayer(layers[2]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute bottom-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'bottom' 
                       ? 'border-neutral-450 ring-2 ring-neutral-400/10 shadow-md' 
@@ -363,7 +375,7 @@ const Home = () => {
                     <div className="flex justify-between items-center">
                       <h4 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">{selectedLayer.name}</h4>
                       <button 
-                        onClick={() => setSelectedLayer(null)}
+                        onClick={() => { setSelectedLayer(null); setIsAutoCycling(false); }}
                         className="text-[10px] text-neutral-400 hover:text-neutral-900"
                       >
                         Clear Selection
