@@ -26,7 +26,7 @@ const About = () => {
           <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Who We Are</span>
           <h1 className="text-4xl font-extrabold text-neutral-900 tracking-tight">Our Growth &amp; Manufacturing Journey</h1>
           <p className="text-sm text-neutral-500 max-w-2xl mx-auto font-light leading-relaxed">
-            With a combined 20 years of experience, we have evolved from top industrial panel traders into quality-certified manufacturers, helping construct durable thermal barriers.
+            With a combined 5+ years of experience, we have evolved from top industrial panel traders into quality-certified manufacturers, helping construct durable thermal barriers.
           </p>
         </div>
       </section>

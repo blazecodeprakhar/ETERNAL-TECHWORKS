@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-neutral-500 font-light leading-relaxed max-w-sm">
-              A specialized industrial building solutions manufacturer driven by over 20 years of combined experience and strict conformance to quality standards.
+              A specialized industrial building solutions manufacturer driven by over 5+ years of combined experience and strict conformance to quality standards.
             </p>
           </div>
 

@@ -73,7 +73,7 @@ const Home = () => {
             {/* Quick trust metrics */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-neutral-200/80 max-w-lg mx-auto lg:mx-0">
               <div>
-                <span className="block text-3xl font-extrabold text-neutral-900">20+</span>
+                <span className="block text-3xl font-extrabold text-neutral-900">5+</span>
                 <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Years Experience</span>
               </div>
               <div>
