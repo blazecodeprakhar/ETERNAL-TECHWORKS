@@ -156,8 +156,8 @@ const Home = () => {
                     </filter>
                   </defs>
 
-                  {/* Connection Lines (Desktop only) */}
-                  <g className="hidden lg:block">
+                  {/* Connection Lines */}
+                  <g>
                     {/* Top connection line */}
                     <path 
                       d={`M 210,${175 + (exploded ? -65 : 0)} L 140,${175 + (exploded ? -65 : 0)} L 100,70 L 35,70`} 
@@ -311,69 +311,49 @@ const Home = () => {
                   </g>
                 </svg>
 
-                {/* Floating Callouts (Desktop only) */}
+                {/* Floating Callouts */}
                 {/* 1. Top Sheet */}
                 <div 
                   onClick={() => setSelectedLayer(layers[0])}
-                  className={`hidden lg:flex flex-col absolute top-[10%] left-[2%] w-44 bg-white/95 border p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
+                  className={`flex flex-col absolute top-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'top' 
                       ? 'border-primary-500 ring-2 ring-primary-500/10 shadow-md' 
                       : 'border-neutral-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-[10px] text-primary-600 font-bold uppercase tracking-wider mb-0.5">① Outer Skin</span>
-                  <span className="text-[11px] font-bold text-neutral-900 leading-tight">Top Profile Sheet</span>
-                  <span className="text-[9px] text-neutral-500 mt-1 font-mono">0.5mm PPGI Corrugations</span>
+                  <span className="text-[8px] sm:text-[10px] text-primary-600 font-bold uppercase tracking-wider mb-0.5">① Outer Skin</span>
+                  <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Top Profile Sheet</span>
+                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">0.5mm PPGI Corrugations</span>
                 </div>
 
                 {/* 2. Core Foam */}
                 <div 
                   onClick={() => setSelectedLayer(layers[1])}
-                  className={`hidden lg:flex flex-col absolute top-[40%] right-[2%] w-44 bg-white/95 border p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
+                  className={`flex flex-col absolute top-[40%] right-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'core' 
                       ? 'border-amber-500 ring-2 ring-amber-500/10 shadow-md' 
                       : 'border-neutral-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-[10px] text-amber-600 font-bold uppercase tracking-wider mb-0.5">② Thermal Core</span>
-                  <span className="text-[11px] font-bold text-neutral-900 leading-tight">Polyurethane / PIR</span>
-                  <span className="text-[9px] text-neutral-500 mt-1 font-mono">40 kg/m³ High Density</span>
+                  <span className="text-[8px] sm:text-[10px] text-amber-600 font-bold uppercase tracking-wider mb-0.5">② Thermal Core</span>
+                  <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Polyurethane / PIR</span>
+                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">40 kg/m³ High Density</span>
                 </div>
 
                 {/* 3. Bottom Sheet */}
                 <div 
                   onClick={() => setSelectedLayer(layers[2])}
-                  className={`hidden lg:flex flex-col absolute bottom-[10%] left-[2%] w-44 bg-white/95 border p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
+                  className={`flex flex-col absolute bottom-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'bottom' 
                       ? 'border-neutral-450 ring-2 ring-neutral-400/10 shadow-md' 
                       : 'border-neutral-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-[10px] text-neutral-600 font-bold uppercase tracking-wider mb-0.5">③ Inner Skin</span>
-                  <span className="text-[11px] font-bold text-neutral-900 leading-tight">Bottom Profile Liner</span>
-                  <span className="text-[9px] text-neutral-500 mt-1 font-mono">0.4mm Micro-ribbed</span>
+                  <span className="text-[8px] sm:text-[10px] text-neutral-600 font-bold uppercase tracking-wider mb-0.5">③ Inner Skin</span>
+                  <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Bottom Profile Liner</span>
+                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">0.4mm Micro-ribbed</span>
                 </div>
 
-              </div>
-
-              {/* Mobile Stacking Selector Grid (Mobile/Tablet only) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full lg:hidden mt-4">
-                {layers.map((layer, idx) => (
-                  <div
-                    key={layer.id}
-                    onClick={() => setSelectedLayer(layer)}
-                    className={`p-3 bg-neutral-50 border rounded-xl cursor-pointer transition-all flex flex-col justify-center text-center ${
-                      selectedLayer?.id === layer.id 
-                        ? 'border-primary-500 bg-primary-50/20' 
-                        : 'border-neutral-200'
-                    }`}
-                  >
-                    <span className="text-[10px] text-primary-600 font-bold uppercase tracking-wider">
-                      {idx === 0 ? '① Outer Skin' : idx === 1 ? '② Thermal Core' : '③ Inner Skin'}
-                    </span>
-                    <span className="text-xs font-bold text-neutral-900 mt-0.5">{layer.name}</span>
-                  </div>
-                ))}
               </div>
 
               {/* Dynamic Detail Overlay */}
