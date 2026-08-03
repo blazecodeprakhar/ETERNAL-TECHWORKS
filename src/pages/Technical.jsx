@@ -4,14 +4,14 @@ import ScrollReveal from '../components/ScrollReveal';
 
 const Technical = () => {
   const comparativeInsulation = [
-    { name: 'PU-Rigid Foam (Eternal Panels)', thickness: 50, color: 'bg-primary-600' },
-    { name: 'EPS (Expanded Polystyrene)', thickness: 80, color: 'bg-primary-400' },
-    { name: 'Mineral Wool / Rockwool', thickness: 90, color: 'bg-neutral-500' },
-    { name: 'Natural Cork Board', thickness: 100, color: 'bg-amber-600' },
-    { name: 'Compressed Woodfiber', thickness: 130, color: 'bg-amber-800' },
-    { name: 'Softwood Framing', thickness: 200, color: 'bg-orange-600' },
-    { name: 'Lightweight Concrete Block', thickness: 760, color: 'bg-neutral-400' },
-    { name: 'Standard Clay Brick Wall', thickness: 1720, color: 'bg-red-500' },
+    { name: 'PU-Rigid Foam (distributed by Eternal)', thickness: 50, color: 'bg-primary-600 ring-2 ring-primary-500/20' },
+    { name: 'EPS (Expanded Polystyrene)', thickness: 80, color: 'bg-neutral-400' },
+    { name: 'Mineral Wool / Rockwool', thickness: 90, color: 'bg-neutral-400' },
+    { name: 'Natural Cork Board', thickness: 100, color: 'bg-neutral-450' },
+    { name: 'Compressed Woodfiber', thickness: 130, color: 'bg-neutral-450' },
+    { name: 'Softwood Framing', thickness: 200, color: 'bg-neutral-500' },
+    { name: 'Lightweight Concrete Block', thickness: 760, color: 'bg-neutral-500' },
+    { name: 'Standard Clay Brick Wall', thickness: 1720, color: 'bg-neutral-600' },
   ];
 
   return (
@@ -38,7 +38,7 @@ const Technical = () => {
             <div className="flex items-center justify-between">
               <h3 className="text-base font-bold text-neutral-900 flex items-center space-x-2">
                 <Info className="w-5 h-5 text-primary-600" />
-                <span>Technical Specifications (IS 12436)</span>
+                <span>Technical Specification (IS 12436)</span>
               </h3>
               <span className="text-xs text-neutral-400 font-mono">PUR vs PIR Cores</span>
             </div>
@@ -55,13 +55,13 @@ const Technical = () => {
                 <tbody className="divide-y divide-neutral-100 text-neutral-600">
                   <tr>
                     <td className="p-4 font-bold text-neutral-800">Foam Core Density</td>
-                    <td className="p-4">40 ± 2 kg/m³</td>
-                    <td className="p-4">40 ± 2 kg/m³</td>
+                    <td className="p-4">40 &plusmn; 2 kg/m&sup3;</td>
+                    <td className="p-4">40 &plusmn; 2 kg/m&sup3;</td>
                   </tr>
                   <tr className="bg-neutral-50/50">
                     <td className="p-4 font-bold text-neutral-800">Thermal Conductivity (K-Value)</td>
-                    <td className="p-4">0.023 W/m·K</td>
-                    <td className="p-4">0.023 W/m·K</td>
+                    <td className="p-4">0.023 W/m&middot;K</td>
+                    <td className="p-4">0.023 W/m&middot;K</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-bold text-neutral-800">Compressive Strength (10% Def.)</td>
@@ -84,7 +84,7 @@ const Technical = () => {
                     <td className="p-4">0.12 ng/pasm</td>
                   </tr>
                   <tr>
-                    <td className="p-4 font-bold text-neutral-800">Dimensional Stability (70°C)</td>
+                    <td className="p-4 font-bold text-neutral-800">Dimensional Stability (70&deg;C)</td>
                     <td className="p-4">Linear Change &lt; 2%</td>
                     <td className="p-4">Linear Change &lt; 2%</td>
                   </tr>
@@ -95,7 +95,7 @@ const Technical = () => {
             <div className="p-4 bg-orange-50 border border-orange-200 rounded-2xl flex items-start space-x-3 text-xs text-orange-850">
               <Flame className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
               <p className="leading-relaxed font-light">
-                <strong>Fire Safety Note:</strong> PIR contains isocyanurate rings that require much higher temperatures to dissociate compared to polyurethane. Hence, PIR has a significantly lower extent of burn (25mm) and releases less toxic smoke under direct flame, qualifying for strict commercial safety approvals.
+                <strong>Fire Safety Note:</strong> PIR contains isocyanurate rings that require much higher temperatures to dissociate compared to polyurethane. Hence, PIR has a significantly lower extent of burn (25mm) and releases less toxic smoke under direct flame, qualifying for strict commercial safety approvals from recognized manufacturers.
               </p>
             </div>
           </div>
@@ -116,8 +116,8 @@ const Technical = () => {
               {comparativeInsulation.map((item, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-700">{item.name}</span>
-                    <span className="text-primary-600 font-mono">{item.thickness} mm</span>
+                    <span className={`${item.color.includes('primary') ? 'text-primary-600 font-bold' : 'text-neutral-700'}`}>{item.name}</span>
+                    <span className={`${item.color.includes('primary') ? 'text-primary-600 font-bold' : 'text-neutral-500'} font-mono`}>{item.thickness} mm</span>
                   </div>
                   
                   {/* Progress bar */}
@@ -149,7 +149,7 @@ const Technical = () => {
       <ScrollReveal duration={900}>
         <section className="py-16 bg-white border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-xl font-extrabold text-neutral-900 text-center mb-10">Conforming Performance Advantages</h3>
+            <h3 className="text-xl font-extrabold text-neutral-900 text-center mb-10">Performance Advantages</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-600 leading-relaxed font-light">
               <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
@@ -169,7 +169,7 @@ const Technical = () => {
 
               <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-3 hover:scale-102 hover:shadow-md hover:border-primary-500/20 transition-all duration-300">
                 <h4 className="font-bold text-neutral-900 text-sm">Eco-Conformance</h4>
-                <p>Injected using water/hydrocarbon blowing systems containing zero ozone-depleting substances, satisfying environmental project guidelines.</p>
+                <p>Injected using blowing systems containing zero ozone-depleting substances, satisfying environmental project guidelines.</p>
               </div>
             </div>
           </div>

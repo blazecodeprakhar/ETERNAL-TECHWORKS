@@ -8,6 +8,7 @@ const Home = () => {
   const [exploded, setExploded] = useState(true);
   const [selectedLayer, setSelectedLayer] = useState(null);
   const [isAutoCycling, setIsAutoCycling] = useState(true);
+  const [panelType, setPanelType] = useState('roof'); // 'roof' or 'wall'
 
   useEffect(() => {
     if (!isAutoCycling) return;
@@ -17,33 +18,57 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [isAutoCycling]);
 
-  const layers = [
-    {
-      id: 'top',
-      name: 'Top Metal Profile Sheet',
-      desc: 'High-tensile prepainted galvanized steel (PPGI) or galvalume (PPGL) sheets with a 35mm trapezoidal rib profile for superior water run-off and structural load bearing.',
-      specs: { Material: 'PPGI / PPGL / GI Steel', Thickness: '0.45 mm – 0.80 mm', Coating: 'AZ150 / Zinc 120 GSM', Colors: 'RAL 5012 Light Blue, RAL 9002 Grey White, etc.' }
-    },
-    {
-      id: 'core',
-      name: 'Rigid PUF / PIR Core',
-      desc: 'High-density rigid Polyurethane Foam (PUR) or Polyisocyanurate (PIR) injected at high pressure, providing outstanding thermal sealing, acoustic isolation, and structural rigidity.',
-      specs: { Density: '40 ± 2 kg/m³', 'K-Value': '0.023 W/m·K', 'Cell Structure': '90–95% Closed Cell', Standards: 'IS-12436 compliant, CFC & HCFC Free' }
-    },
-    {
-      id: 'bottom',
-      name: 'Bottom Metal Profile Sheet',
-      desc: 'Linear micro-ribbed or plain steel lining designed for clean appearance, high resistance to internal humidity, and secure ceiling/wall mounting interface.',
-      specs: { Material: 'PPGI / PPGL / Aluminum', Thickness: '0.40 mm – 0.60 mm', Profile: 'Micro-ribbed / Plain / Liner', Color: 'RAL 9002 (Standard Light Grey)' }
-    }
-  ];
+  const layers = {
+    roof: [
+      {
+        id: 'top',
+        name: 'Top Metal Profile Sheet (Roof)',
+        desc: 'High-tensile prepainted galvanized steel (PPGI) or galvalume (PPGL) sheets with a 35mm trapezoidal rib profile for superior water run-off and structural load bearing.',
+        specs: { Material: 'PPGI / PPGL / GI Steel', Thickness: '0.3 mm – 0.8 mm', Coating: 'AZ150 / Zinc 120 GSM', Profile: '35mm Trapezoidal Ribs' }
+      },
+      {
+        id: 'core',
+        name: 'Rigid PUF / PIR Core',
+        desc: 'High-density rigid Polyurethane Foam (PUR) or Polyisocyanurate (PIR) injected under high pressure, providing outstanding thermal sealing and structural rigidity.',
+        specs: { Density: '40 ± 2 kg/m³', 'K-Value': '0.023 W/m·K', 'Cell Structure': '90–95% Closed Cell', Standards: 'IS-12436 compliant' }
+      },
+      {
+        id: 'bottom',
+        name: 'Bottom Metal Profile Sheet',
+        desc: 'Linear micro-ribbed or plain steel lining for clean appearance, high resistance to internal humidity, and secure structural mounting.',
+        specs: { Material: 'PPGI / PPGL / Aluminum', Thickness: '0.40 mm – 0.60 mm', Profile: 'Micro-ribbed / Plain / Liner', Color: 'RAL 9002 (Standard Light Grey)' }
+      }
+    ],
+    wall: [
+      {
+        id: 'top',
+        name: 'Top Metal Profile Sheet (Wall)',
+        desc: 'Linear micro-ribbed prepainted galvanized steel (PPGI) sheet for premium architectural cladding, clean partitions, and modular panels.',
+        specs: { Material: 'PPGI / PPGL / GI Steel', Thickness: '0.3 mm – 0.8 mm', Coating: 'AZ150 / Zinc 120 GSM', Profile: 'Micro-ribbed / Plain' }
+      },
+      {
+        id: 'core',
+        name: 'Rigid PUF / PIR Core',
+        desc: 'High-density rigid Polyurethane Foam (PUR) or Polyisocyanurate (PIR) core, offering uniform thermal protection and sturdy structural strength for partition walls.',
+        specs: { Density: '40 ± 2 kg/m³', 'K-Value': '0.023 W/m·K', 'Cell Structure': '90–95% Closed Cell', Standards: 'IS-12436 compliant' }
+      },
+      {
+        id: 'bottom',
+        name: 'Bottom Metal Profile Sheet',
+        desc: 'Linear micro-ribbed or plain steel lining for internal hygiene, low vapor permeability, and easy washdown maintenance.',
+        specs: { Material: 'PPGI / PPGL / Aluminum', Thickness: '0.40 mm – 0.60 mm', Profile: 'Micro-ribbed / Plain / Liner', Color: 'RAL 9002 (Standard Light Grey)' }
+      }
+    ]
+  };
+
+  const currentLayers = layers[panelType];
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
       
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-primary-50/20 to-neutral-50 border-b border-neutral-200/50">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(14,165,233,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,165,233,0.025)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(239,68,68,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(239,68,68,0.025)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         
         <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
@@ -51,7 +76,7 @@ const Home = () => {
           <div className="lg:col-span-6 space-y-8 text-center lg:text-left animate-fade-in-up">
             <div className="inline-flex items-center space-x-2 bg-white border border-neutral-200 shadow-xs rounded-full px-4 py-1.5 text-xs text-primary-600 font-bold">
               <Award className="w-4 h-4 text-primary-500" />
-              <span>ISO 9001:2015 &amp; IS-12436 Certified Manufacturing</span>
+              <span>Reliable Distributor of Recognized MFG Insulation Panels</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-neutral-900 tracking-tight leading-tight">
@@ -62,13 +87,13 @@ const Home = () => {
             </h1>
             
             <p className="text-lg text-neutral-600 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-              We design, manufacture, and install high-density thermal insulated panel sheets, specialized rockwool solutions, and custom portable site cabins. Engineered for thermal efficiency, safety, and ultimate longevity.
+              We supply and install high-density thermal insulated panel sheets, specialized rockwool solutions, and custom portable site cabins. Backed by recognized manufacturing brands, reliable service, better communication, and timely delivery.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link 
                 to="/products" 
-                className="w-full sm:w-auto bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md shadow-primary-500/10 hover:shadow-primary-500/20 text-center hover:-translate-y-0.5"
+                className="w-full sm:w-auto bg-neutral-950 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md text-center hover:-translate-y-0.5 border border-neutral-800 hover:border-transparent"
               >
                 View Catalog
               </Link>
@@ -80,19 +105,19 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Quick trust metrics */}
+            {/* Quick trust features replacing experience metrics */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-neutral-200/80 max-w-lg mx-auto lg:mx-0">
               <div>
-                <span className="block text-3xl font-extrabold text-neutral-900">5+</span>
-                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Years Experience</span>
+                <span className="block text-sm font-bold text-neutral-900 uppercase">On-Time</span>
+                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Delivery Support</span>
               </div>
               <div>
-                <span className="block text-3xl font-extrabold text-primary-600">40+</span>
-                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Kg/m³ Density</span>
+                <span className="block text-sm font-bold text-primary-600 uppercase">Hassle-Free</span>
+                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Communication</span>
               </div>
               <div>
-                <span className="block text-3xl font-extrabold text-neutral-900">0.023</span>
-                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Thermal K-Value</span>
+                <span className="block text-sm font-bold text-neutral-900 uppercase">Recognized</span>
+                <span className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Brand Supply</span>
               </div>
             </div>
           </div>
@@ -103,11 +128,27 @@ const Home = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full blur-2xl pointer-events-none" />
               
               {/* Header Info */}
-              <div className="w-full flex justify-between items-center mb-4">
+              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
                 <div>
-                  <h3 className="text-sm font-bold text-neutral-900 uppercase tracking-wider">PUF Sandwich Panel Explode-Viewer</h3>
+                  <h3 className="text-sm font-bold text-neutral-900 uppercase tracking-wider">Insulation Panel Assembly</h3>
                   <p className="text-[11px] text-neutral-500 font-light">Interactive engineering assembly view</p>
                 </div>
+                
+                <div className="flex bg-neutral-100 p-1 rounded-xl border border-neutral-200/60 shrink-0">
+                  <button
+                    onClick={() => { setPanelType('roof'); setIsAutoCycling(false); }}
+                    className={`px-2.5 py-1.5 rounded-lg text-[10px] font-bold transition-all ${panelType === 'roof' ? 'bg-neutral-950 text-white shadow-xs' : 'text-neutral-500 hover:text-neutral-900'}`}
+                  >
+                    Roof Panel
+                  </button>
+                  <button
+                    onClick={() => { setPanelType('wall'); setIsAutoCycling(false); }}
+                    className={`px-2.5 py-1.5 rounded-lg text-[10px] font-bold transition-all ${panelType === 'wall' ? 'bg-neutral-950 text-white shadow-xs' : 'text-neutral-500 hover:text-neutral-900'}`}
+                  >
+                    Wall Panel
+                  </button>
+                </div>
+
                 <button
                   onClick={() => {
                     setExploded(!exploded);
@@ -130,24 +171,24 @@ const Home = () => {
                 <svg viewBox="0 0 500 350" className="w-full h-full absolute inset-0 z-10 transition-all duration-500">
                   <defs>
                     <linearGradient id="topSkinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#38bdf8" />
-                      <stop offset="100%" stopColor="#0284c7" />
+                      <stop offset="0%" stopColor="#ef4444" />
+                      <stop offset="100%" stopColor="#b91c1c" />
                     </linearGradient>
                     <linearGradient id="topSkinSideGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#0284c7" />
-                      <stop offset="100%" stopColor="#0369a1" />
+                      <stop offset="0%" stopColor="#b91c1c" />
+                      <stop offset="100%" stopColor="#991b1b" />
                     </linearGradient>
                     <linearGradient id="coreFoamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#fefcf0" />
-                      <stop offset="100%" stopColor="#fef08a" />
-                    </linearGradient>
-                    <linearGradient id="coreFoamSideLGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#fef08a" />
                       <stop offset="100%" stopColor="#fde047" />
                     </linearGradient>
-                    <linearGradient id="coreFoamSideRGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <linearGradient id="coreFoamSideLGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#fde047" />
                       <stop offset="100%" stopColor="#ca8a04" />
+                    </linearGradient>
+                    <linearGradient id="coreFoamSideRGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ca8a04" />
+                      <stop offset="100%" stopColor="#854d0e" />
                     </linearGradient>
                     <linearGradient id="bottomSkinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#f8fafc" />
@@ -188,14 +229,14 @@ const Home = () => {
                     {/* Bottom connection line */}
                     <path 
                       d={`M 210,${225 + (exploded ? 65 : 0)} L 140,${225 + (exploded ? 65 : 0)} L 100,290 L 35,290`} 
-                      className={`stroke-2 fill-none transition-all duration-500 ${selectedLayer?.id === 'bottom' ? 'stroke-primary-600' : 'stroke-neutral-300 stroke-dasharray-[3,3]'}`}
+                      className={`stroke-2 fill-none transition-all duration-500 ${selectedLayer?.id === 'bottom' ? 'stroke-neutral-600' : 'stroke-neutral-300 stroke-dasharray-[3,3]'}`}
                     />
-                    <circle cx="210" cy={225 + (exploded ? 65 : 0)} r="4" className={`transition-all duration-500 ${selectedLayer?.id === 'bottom' ? 'fill-primary-600' : 'fill-neutral-400'}`} />
+                    <circle cx="210" cy={225 + (exploded ? 65 : 0)} r="4" className={`transition-all duration-500 ${selectedLayer?.id === 'bottom' ? 'fill-neutral-600' : 'fill-neutral-400'}`} />
                   </g>
 
                   {/* 3D Bottom Sheet Layer */}
                   <g 
-                    onClick={() => { setSelectedLayer(layers[2]); setIsAutoCycling(false); }} 
+                    onClick={() => { setSelectedLayer(currentLayers[2]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'bottom' ? 'url(#glowFilter)' : ''}
                   >
@@ -225,7 +266,7 @@ const Home = () => {
 
                   {/* 3D Core Foam Layer */}
                   <g 
-                    onClick={() => { setSelectedLayer(layers[1]); setIsAutoCycling(false); }} 
+                    onClick={() => { setSelectedLayer(currentLayers[1]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'core' ? 'url(#glowFilter)' : ''}
                   >
@@ -248,7 +289,7 @@ const Home = () => {
 
                   {/* 3D Top Metal Sheet Layer */}
                   <g 
-                    onClick={() => { setSelectedLayer(layers[0]); setIsAutoCycling(false); }} 
+                    onClick={() => { setSelectedLayer(currentLayers[0]); setIsAutoCycling(false); }} 
                     className="cursor-pointer"
                     filter={selectedLayer?.id === 'top' ? 'url(#glowFilter)' : ''}
                   >
@@ -258,56 +299,70 @@ const Home = () => {
                       fill="url(#topSkinGradient)"
                       className="transition-all duration-500"
                     />
-                    {/* Trapezoidal Raised Rib 1 */}
-                    <polygon 
-                      points={`154,${134 + (exploded ? -65 : 0)} 166,${129 + (exploded ? -65 : 0)} 286,${179 + (exploded ? -65 : 0)} 274,${184 + (exploded ? -65 : 0)}`} 
-                      fill="#0284c7"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`154,${134 + (exploded ? -65 : 0)} 274,${184 + (exploded ? -65 : 0)} 274,${188 + (exploded ? -65 : 0)} 154,${138 + (exploded ? -65 : 0)}`} 
-                      fill="#0369a1"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`274,${184 + (exploded ? -65 : 0)} 286,${179 + (exploded ? -65 : 0)} 286,${183 + (exploded ? -65 : 0)} 274,${188 + (exploded ? -65 : 0)}`} 
-                      fill="#075985"
-                      className="transition-all duration-500"
-                    />
 
-                    {/* Trapezoidal Raised Rib 2 */}
-                    <polygon 
-                      points={`190,${119 + (exploded ? -65 : 0)} 202,${114 + (exploded ? -65 : 0)} 322,${164 + (exploded ? -65 : 0)} 310,${169 + (exploded ? -65 : 0)}`} 
-                      fill="#0284c7"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`190,${119 + (exploded ? -65 : 0)} 310,${169 + (exploded ? -65 : 0)} 310,${173 + (exploded ? -65 : 0)} 190,${123 + (exploded ? -65 : 0)}`} 
-                      fill="#0369a1"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`310,${169 + (exploded ? -65 : 0)} 322,${164 + (exploded ? -65 : 0)} 322,${168 + (exploded ? -65 : 0)} 310,${173 + (exploded ? -65 : 0)}`} 
-                      fill="#075985"
-                      className="transition-all duration-500"
-                    />
+                    {panelType === 'roof' ? (
+                      <>
+                        {/* Trapezoidal Raised Rib 1 */}
+                        <polygon 
+                          points={`154,${134 + (exploded ? -65 : 0)} 166,${129 + (exploded ? -65 : 0)} 286,${179 + (exploded ? -65 : 0)} 274,${184 + (exploded ? -65 : 0)}`} 
+                          fill="#b91c1c"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`154,${134 + (exploded ? -65 : 0)} 274,${184 + (exploded ? -65 : 0)} 274,${188 + (exploded ? -65 : 0)} 154,${138 + (exploded ? -65 : 0)}`} 
+                          fill="#991b1b"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`274,${184 + (exploded ? -65 : 0)} 286,${179 + (exploded ? -65 : 0)} 286,${183 + (exploded ? -65 : 0)} 274,${188 + (exploded ? -65 : 0)}`} 
+                          fill="#7f1d1d"
+                          className="transition-all duration-500"
+                        />
 
-                    {/* Trapezoidal Raised Rib 3 */}
-                    <polygon 
-                      points={`226,${104 + (exploded ? -65 : 0)} 238,${99 + (exploded ? -65 : 0)} 358,${149 + (exploded ? -65 : 0)} 346,${154 + (exploded ? -65 : 0)}`} 
-                      fill="#0284c7"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`226,${104 + (exploded ? -65 : 0)} 346,${154 + (exploded ? -65 : 0)} 346,${158 + (exploded ? -65 : 0)} 226,${108 + (exploded ? -65 : 0)}`} 
-                      fill="#0369a1"
-                      className="transition-all duration-500"
-                    />
-                    <polygon 
-                      points={`346,${154 + (exploded ? -65 : 0)} 358,${149 + (exploded ? -65 : 0)} 358,${153 + (exploded ? -65 : 0)} 346,${158 + (exploded ? -65 : 0)}`} 
-                      fill="#075985"
-                      className="transition-all duration-500"
-                    />
+                        {/* Trapezoidal Raised Rib 2 */}
+                        <polygon 
+                          points={`190,${119 + (exploded ? -65 : 0)} 202,${114 + (exploded ? -65 : 0)} 322,${164 + (exploded ? -65 : 0)} 310,${169 + (exploded ? -65 : 0)}`} 
+                          fill="#b91c1c"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`190,${119 + (exploded ? -65 : 0)} 310,${169 + (exploded ? -65 : 0)} 310,${173 + (exploded ? -65 : 0)} 190,${123 + (exploded ? -65 : 0)}`} 
+                          fill="#991b1b"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`310,${169 + (exploded ? -65 : 0)} 322,${164 + (exploded ? -65 : 0)} 322,${168 + (exploded ? -65 : 0)} 310,${173 + (exploded ? -65 : 0)}`} 
+                          fill="#7f1d1d"
+                          className="transition-all duration-500"
+                        />
+
+                        {/* Trapezoidal Raised Rib 3 */}
+                        <polygon 
+                          points={`226,${104 + (exploded ? -65 : 0)} 238,${99 + (exploded ? -65 : 0)} 358,${149 + (exploded ? -65 : 0)} 346,${154 + (exploded ? -65 : 0)}`} 
+                          fill="#b91c1c"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`226,${104 + (exploded ? -65 : 0)} 346,${154 + (exploded ? -65 : 0)} 346,${158 + (exploded ? -65 : 0)} 226,${108 + (exploded ? -65 : 0)}`} 
+                          fill="#991b1b"
+                          className="transition-all duration-500"
+                        />
+                        <polygon 
+                          points={`346,${154 + (exploded ? -65 : 0)} 358,${149 + (exploded ? -65 : 0)} 358,${153 + (exploded ? -65 : 0)} 346,${158 + (exploded ? -65 : 0)}`} 
+                          fill="#7f1d1d"
+                          className="transition-all duration-500"
+                        />
+                      </>
+                    ) : (
+                      <>
+                        {/* Micro-rib lines for Wall panel */}
+                        <line x1="160" y1={130 + (exploded ? -65 : 0)} x2="280" y2={180 + (exploded ? -65 : 0)} stroke="white" strokeWidth="1.5" strokeOpacity="0.5" className="transition-all duration-500" />
+                        <line x1="175" y1={124 + (exploded ? -65 : 0)} x2="295" y2={174 + (exploded ? -65 : 0)} stroke="white" strokeWidth="1.5" strokeOpacity="0.5" className="transition-all duration-500" />
+                        <line x1="190" y1={118 + (exploded ? -65 : 0)} x2="310" y2={168 + (exploded ? -65 : 0)} stroke="white" strokeWidth="1.5" strokeOpacity="0.5" className="transition-all duration-500" />
+                        <line x1="205" y1={112 + (exploded ? -65 : 0)} x2="325" y2={162 + (exploded ? -65 : 0)} stroke="white" strokeWidth="1.5" strokeOpacity="0.5" className="transition-all duration-500" />
+                        <line x1="220" y1={106 + (exploded ? -65 : 0)} x2="340" y2={156 + (exploded ? -65 : 0)} stroke="white" strokeWidth="1.5" strokeOpacity="0.5" className="transition-all duration-500" />
+                      </>
+                    )}
 
                     {/* Front-left face */}
                     <polygon 
@@ -327,7 +382,7 @@ const Home = () => {
                 {/* Floating Callouts */}
                 {/* 1. Top Sheet */}
                 <div 
-                  onClick={() => { setSelectedLayer(layers[0]); setIsAutoCycling(false); }}
+                  onClick={() => { setSelectedLayer(currentLayers[0]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute top-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'top' 
                       ? 'border-primary-500 ring-2 ring-primary-500/10 shadow-md' 
@@ -335,13 +390,13 @@ const Home = () => {
                   }`}
                 >
                   <span className="text-[8px] sm:text-[10px] text-primary-600 font-bold uppercase tracking-wider mb-0.5">① Outer Skin</span>
-                  <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Top Profile Sheet</span>
-                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">0.5mm PPGI Corrugations</span>
+                  <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Top Metal Sheet</span>
+                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">0.3mm - 0.8mm Thickness</span>
                 </div>
 
                 {/* 2. Core Foam */}
                 <div 
-                  onClick={() => { setSelectedLayer(layers[1]); setIsAutoCycling(false); }}
+                  onClick={() => { setSelectedLayer(currentLayers[1]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute top-[40%] right-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'core' 
                       ? 'border-amber-500 ring-2 ring-amber-500/10 shadow-md' 
@@ -350,12 +405,12 @@ const Home = () => {
                 >
                   <span className="text-[8px] sm:text-[10px] text-amber-600 font-bold uppercase tracking-wider mb-0.5">② Thermal Core</span>
                   <span className="text-[9px] sm:text-[11px] font-bold text-neutral-900 leading-tight">Polyurethane / PIR</span>
-                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">40 kg/m³ High Density</span>
+                  <span className="hidden sm:block text-[9px] text-neutral-500 mt-1 font-mono">IS-12436 Rigid Foam</span>
                 </div>
 
                 {/* 3. Bottom Sheet */}
                 <div 
-                  onClick={() => { setSelectedLayer(layers[2]); setIsAutoCycling(false); }}
+                  onClick={() => { setSelectedLayer(currentLayers[2]); setIsAutoCycling(false); }}
                   className={`flex flex-col absolute bottom-[10%] left-[2%] w-[115px] sm:w-44 bg-white/95 border p-1.5 sm:p-2.5 rounded-xl shadow-xs cursor-pointer transition-all duration-300 hover:-translate-y-0.5 z-20 ${
                     selectedLayer?.id === 'bottom' 
                       ? 'border-neutral-450 ring-2 ring-neutral-400/10 shadow-md' 
@@ -396,7 +451,7 @@ const Home = () => {
                   <div className="flex flex-col items-center justify-center text-center h-full my-auto text-neutral-400 space-y-2">
                     <Layers className="w-6 h-6 text-neutral-300" />
                     <p className="text-xs leading-normal">
-                      Select any layer from the diagram above or floating cards to inspect its specific zinc thickness, foam core attributes, and density calculations.
+                      Select any layer from the diagram above or floating cards to inspect its specific profile details, zinc thickness, and material composition.
                     </p>
                   </div>
                 )}
@@ -414,7 +469,7 @@ const Home = () => {
             <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Core Expertise</span>
             <h2 className="text-3xl font-extrabold text-neutral-950">Industrial Solutions Portfolio</h2>
             <p className="text-sm text-neutral-600 max-w-2xl mx-auto font-light">
-              We operate modern structural fabrication and panel assembly yards, delivering consistent insulation specs across Pune and beyond.
+              We supply high-performance multi-insulation systems and structural steel components, providing reliable support across Maharashtra.
             </p>
           </div>
 
@@ -423,24 +478,24 @@ const Home = () => {
               {
                 title: 'Insulation Solutions',
                 desc: 'Thermal & Acoustic panel insulation boards, PUR, PIR, Rockwool cores, and radiant heat foils.',
-                icon: Thermometer,
+                icon: Layers,
                 link: '/products'
               },
               {
                 title: 'Custom Prefab Cabins',
-                desc: 'Custom security cabins, modular site control rooms, shelter offices, and container offices.',
+                desc: 'Custom security cabins, modular site office rooms, shelter offices, and container spaces.',
                 icon: Building,
                 link: '/services'
               },
               {
                 title: 'Installation Services',
-                desc: 'Professional panel mounting, double overlapping overlaps, leakproof joint erection, and support purlins.',
+                desc: 'Professional panel mounting, double overlapping overlaps, leakproof joint support, and structural installation.',
                 icon: Wrench,
                 link: '/services'
               },
               {
-                title: 'Structural Steel Fabrication',
-                desc: 'Heavy industrial frame beams, load bearing trusses, framework designs, and roof supports.',
+                title: 'Structural Steel Support',
+                desc: 'Heavy industrial frame beams, load bearing trusses, support structures, and roof support brackets.',
                 icon: Settings,
                 link: '/services'
               }
@@ -473,30 +528,30 @@ const Home = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-5 space-y-6">
-                <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Quality Compliant</span>
-                <h2 className="text-3xl font-extrabold text-neutral-900 leading-tight">Advanced Manufacturing Facility in Pune</h2>
+                <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Reliable Services &amp; Support</span>
+                <h2 className="text-3xl font-extrabold text-neutral-900 leading-tight">Trusted Distribution &amp; Project Erection Support</h2>
                 <p className="text-xs text-neutral-600 leading-relaxed font-light">
-                  Our plant utilizes advanced continuous line profiling equipment, maintaining uniform core densities of 40-45 kg/m³ for PUF/PIR and 100 kg/m³ for Rockwool. Every batch complies with national IS-12436 insulation standard metrics.
+                  We supply high-quality panels sourced from recognized manufacturing brands, maintaining uniform core densities of 40-45 kg/m³ for PUF/PIR and 100 kg/m³ for Rockwool. Every batch complies with national IS-12436 insulation standard metrics.
                 </p>
                 
                 <ul className="space-y-3 text-xs font-semibold text-neutral-700">
                   <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-500" />
-                    <span>100% CFC and HCFC-free raw chemicals</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-550" />
+                    <span>On-time delivery across Maharashtra</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-500" />
-                    <span>Certified Fire Retardant PIR options</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-550" />
+                    <span>Better communication and instant sales response</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-500" />
-                    <span>Custom panel lengths up to 15 meters</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-550" />
+                    <span>Associate erection teams for project installation support</span>
                   </li>
                 </ul>
 
                 <Link 
                   to="/about" 
-                  className="inline-flex bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md shadow-primary-500/10 hover:shadow-primary-500/20"
+                  className="inline-flex bg-neutral-950 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md hover:-translate-y-0.5 border border-neutral-800 hover:border-transparent"
                 >
                   About Our Growth Journey
                 </Link>
@@ -510,33 +565,6 @@ const Home = () => {
               </div>
             </div>
 
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* CTA HUB */}
-      <ScrollReveal duration={900}>
-        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white border border-neutral-200/80 rounded-3xl my-16 shadow-xs relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.05),transparent_70%)]" />
-          <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold text-neutral-900">Need Custom Technical Designs?</h2>
-            <p className="text-xs text-neutral-600 font-light leading-relaxed">
-              Our structural engineering desk in Kharadi, Pune provides full CAD structural drawings, calculation metrics, and specific load-span tables customized exactly to your architectural scope.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto bg-primary-600 hover:bg-primary-500 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all shadow-md"
-              >
-                Contact Our Sales Desk
-              </Link>
-              <Link 
-                to="/technical" 
-                className="w-full sm:w-auto bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl transition-all border border-neutral-300"
-              >
-                Compare Core Properties
-              </Link>
-            </div>
           </div>
         </section>
       </ScrollReveal>

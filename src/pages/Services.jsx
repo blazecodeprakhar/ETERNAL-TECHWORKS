@@ -6,31 +6,31 @@ import ScrollReveal from '../components/ScrollReveal';
 const Services = () => {
   const servicesList = [
     {
-      title: 'Prefab Cabin & Room Manufacturing',
-      desc: 'We construct custom-sized prefabricated security outposts, modular office spaces, project staff bunkhouses, and control cabins. Engineered with durable lightweight steel framing and insulated sandwich panel walls.',
+      title: 'Prefab Cabin & Room Supply',
+      desc: 'We supply custom-sized prefabricated security outposts, modular office spaces, project staff bunkhouses, and control cabins. Sourced from recognized manufacturers and aligned with structural specifications for site installation.',
       icon: Building2,
-      features: ['Custom shapes & layouts', 'Complete power wiring setup', 'Ready-to-use plug-and-play assembly', 'High wind resistance structural framing']
+      features: ['Various shapes & layouts', 'Complete power wiring setup', 'Ready-to-use plug-and-play assembly', 'High-strength structural framing']
     },
     {
-      title: 'PUF Panel Erection & Joint Isolation',
-      desc: 'Our erection teams construct cold storage chambers, food processing corridors, and clean room partitions. Utilizing double-overlap interlocking joints and food-grade silicone seals to prevent thermal leaks.',
+      title: 'PUF/PIR Panel Supply & Project Installation',
+      desc: 'We are distributors of PUF/PIR panels; our associate team will support in project installation for temperature-controlled spaces, corridors, clean rooms, and clean environments.',
       icon: Wrench,
-      features: ['Food-grade clean rooms', 'Low temperature walk-in freezers', 'Hermetically sealed overlaps', 'Rapid scheduling site timelines']
+      features: ['Panels for chilled rooms', 'High-performance joint isolation', 'Material supply with installation teams', 'On-time project scheduling support']
     },
     {
-      title: 'Heavy Structural Steel Fabrication',
-      desc: 'We design and fabricate heavy steel support columns, industrial roof trusses, structural channels, and purlin frameworks. Essential for carrying large roof panel assemblies securely.',
+      title: 'Heavy Structural Steel Support',
+      desc: 'As per Architect & Structural Engineering approved drawings, we can provide structure support with material. We supply heavy steel support columns, industrial roof trusses, structural channels, and purlins.',
       icon: Settings,
-      features: ['CAD calculation support', 'High grade welding standards', 'Anti-corrosion primer coating', 'Heavy-load capacity steel grades']
+      features: ['Approved drawing compliance', 'High-grade welding materials', 'Anti-corrosion primer coating support', 'Material supply for heavy frameworks']
     }
   ];
 
   const sectors = [
-    { name: 'Industrial Warehousing', info: 'Large span roofing & anti-leak wall panels' },
-    { name: 'Cold Storages & Chillers', info: 'Low temperature thermal sealing locks' },
-    { name: 'Clean Room Installations', info: 'Hygiene-compliant pharmaceutical environments' },
+    { name: 'Industrial Warehousing', info: 'Large span roofing & wall panel supply' },
+    { name: 'Temperature-Controlled Spaces', info: 'Material supply for ambient sealing' },
+    { name: 'Clean Room Environments', info: 'Supply of hygiene-compliant panels' },
     { name: 'Site Infrastructure Offices', info: 'High-strength portable cabins & shelters' },
-    { name: 'Food Processing Units', info: 'Sanitary joint coving insulation' },
+    { name: 'Food Processing Units', info: 'Sanitary joint coving insulation supply' },
     { name: 'Commercial Roofing', info: 'Trapezoidal metal sheets & flashing trims' }
   ];
 
@@ -41,9 +41,9 @@ const Services = () => {
       <section className="bg-white border-b border-neutral-200/80 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Erection &amp; Supply</span>
-          <h1 className="text-4xl font-extrabold text-neutral-900 tracking-tight">Turnkey Erection &amp; Fabrication</h1>
+          <h1 className="text-4xl font-extrabold text-neutral-900 tracking-tight">Erection &amp; Fabrication Support</h1>
           <p className="text-sm text-neutral-500 max-w-2xl mx-auto font-light leading-relaxed">
-            We provide full-service support: from continuous line panel supply to structural frames and modular office cabin designs.
+            We provide comprehensive services: from panel supply of leading brands to structural framework support and modular office cabins.
           </p>
         </div>
       </section>
@@ -71,7 +71,7 @@ const Services = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-neutral-750">
                     {srv.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-emerald-550 shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -90,13 +90,13 @@ const Services = () => {
 
       {/* INDUSTRIES SECTOR GRID */}
       <ScrollReveal duration={900}>
-        <section className="py-16 bg-neutral-105 border-t border-neutral-200">
+        <section className="py-16 bg-neutral-100 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-12">
               <span className="text-xs font-bold tracking-widest text-primary-600 uppercase">Sectors We Support</span>
               <h2 className="text-3xl font-extrabold text-neutral-900">Industries Served</h2>
               <p className="text-sm text-neutral-500 max-w-2xl mx-auto font-light">
-                Providing thermal safety and structural reliability across diverse commercial fields.
+                Providing thermal efficiency and structural reliability across diverse commercial fields.
               </p>
             </div>
 

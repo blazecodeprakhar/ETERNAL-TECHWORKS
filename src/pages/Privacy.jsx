@@ -44,7 +44,7 @@ const Privacy = () => {
           </h2>
           <div className="space-y-3 text-xs text-neutral-600 font-light leading-relaxed">
             <p>
-              When you interact with Eternal Techworks (through our quote forms, call-backs, technical queries, or email transactions), we collect details necessary to fulfill industrial manufacturing services:
+              When you interact with Eternal Techworks (through our quote forms, call-backs, technical queries, or email transactions), we collect details necessary to fulfill industrial supply and installation services:
             </p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li><strong>Contact Particulars:</strong> Name, professional email address, phone number, and physical/billing addresses.</li>
@@ -80,7 +80,7 @@ const Privacy = () => {
             <span>3. Protection and Confidentiality</span>
           </h2>
           <p className="text-xs text-neutral-600 leading-relaxed font-light">
-            We value the proprietary nature of industrial engineering blueprints. All blueprint uploads, CAD files, and company documents are stored on secure servers with restricted access. We never sell, rent, or lease customer databases, project specs, or phone numbers to third-party marketing services. Access is granted strictly to our internal manufacturing staff, structural engineers, and logistical transport partners on a need-to-know basis.
+            We value the proprietary nature of industrial engineering blueprints. All blueprint uploads, CAD files, and company documents are stored on secure servers with restricted access. We never sell, rent, or lease customer databases, project specs, or phone numbers to third-party marketing services. Access is granted strictly to our internal staff, engineers, and logistical transport partners on a need-to-know basis.
           </p>
         </div>
 
