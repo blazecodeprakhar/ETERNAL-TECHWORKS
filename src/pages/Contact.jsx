@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, ExternalLink, ChevronDown, CheckCircle } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -28,6 +29,12 @@ const Contact = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="Contact Us & Registered Sales Office | Kharadi, Pune"
+        description="Contact Eternal Techworks & representative Sagar More in Kharadi, Pune, Maharashtra. Call +91 7030091321 or email eternaltechworks@gmail.com for PUF/PIR panel quotes."
+        canonicalPath="/contact"
+        keywords="Contact Eternal Techworks, PUF Panel Office Kharadi Pune, Sagar More Phone Number, Sandwich Panel Quote Pune"
+      />
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

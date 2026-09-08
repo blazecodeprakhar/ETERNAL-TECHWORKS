@@ -2,6 +2,7 @@ import React from 'react';
 import { Award, Shield, Eye, CheckCircle, TrendingUp, Users, Compass, HelpCircle } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const About = () => {
   const milestones = [
@@ -12,6 +13,12 @@ const About = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="About Eternal Techworks | Trusted PUF & PIR Panel Distributor in Pune"
+        description="Learn about Eternal Techworks and representative Sagar More, reliable distributors of top-tier PUF/PIR sandwich panels, insulation boards, and prefab cabins in Maharashtra."
+        canonicalPath="/about"
+        keywords="About Eternal Techworks, Sagar More Eternal, PUF Panel Distributor Pune, Insulation Supplier Maharashtra"
+      />
       
       {/* HEADER HERO */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Shield, Flame, Building, Wrench, Settings, ArrowRight, Award, Zap, Thermometer, CheckCircle, Layers } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const Home = () => {
   const [exploded, setExploded] = useState(true);
@@ -65,6 +66,12 @@ const Home = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="Eternal Techworks | PUF & PIR Panels, Rockwool Insulation & Prefab Cabins"
+        description="Eternal Techworks is a leading supplier of high-density PUF/PIR sandwich panels, Rockwool acoustic insulation, and custom portable cabins in Pune, Maharashtra."
+        canonicalPath="/"
+        keywords="PUF Panels Pune, PIR Sandwich Panels Maharashtra, Rockwool Insulation, Prefab Cabins Kharadi Pune, Eternal Techworks"
+      />
       
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-primary-50/20 to-neutral-50 border-b border-neutral-200/50">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Layers, Flame, CheckCircle, FlameKindling, Info, Settings, ShieldAlert, Sparkles, Shield, Compass } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const Products = () => {
   const [activeTab, setActiveTab] = useState('puf-roof');
@@ -29,6 +30,12 @@ const Products = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="PUF & PIR Sandwich Panels, Rockwool & XPS Boards Catalog"
+        description="Explore Eternal Techworks' complete catalog of PUF roof panels, PIR wall panels, Rockwool acoustic fireproof insulation, Insuboard XPS, and aluminium bubble sheets."
+        canonicalPath="/products"
+        keywords="PUF Roof Panel, PIR Wall Panel, Rockwool Acoustic Panels, Insuboard XPS, Thermal Insulation Boards, Sandwich Panel Catalog Pune"
+      />
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Info, BarChart2, Flame, ShieldAlert, CheckSquare } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const Technical = () => {
   const comparativeInsulation = [
@@ -16,6 +17,12 @@ const Technical = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="Technical Specifications & Thermal Conductivity Data"
+        description="Detailed engineering center, thermal conductivity comparisons (k-value, U-value), fire safety standards, and structural load calculations for PUF, PIR, and Rockwool panels."
+        canonicalPath="/technical"
+        keywords="PUF Thermal Conductivity, PIR K-value, U-value Insulation Calculation, Fire Safety Ratings B2 PIR, Sandwich Panel Technical Data"
+      />
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

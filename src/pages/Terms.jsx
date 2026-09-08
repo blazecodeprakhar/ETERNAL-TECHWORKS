@@ -1,9 +1,16 @@
 import React from 'react';
 import { Shield, BookOpen, AlertCircle, FileText } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Terms = () => {
   return (
     <div className="animate-fadeIn bg-neutral-50 text-neutral-800 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <SEO 
+        title="Terms of Service | Material Supply & Sales Terms"
+        description="Official terms of service for supply, distribution, and quotation contracts provided by Eternal Techworks in Pune, Maharashtra."
+        canonicalPath="/terms"
+        keywords="Terms of Service Eternal Techworks, PUF Panel Supply Terms Pune"
+      />
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header Hero */}

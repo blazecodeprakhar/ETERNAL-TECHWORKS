@@ -2,6 +2,7 @@ import React from 'react';
 import { Wrench, Building2, Layers, Settings, ChevronRight, CheckCircle } from 'lucide-react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const Services = () => {
   const servicesList = [
@@ -36,6 +37,12 @@ const Services = () => {
 
   return (
     <div className="animate-fade-in bg-neutral-50 text-neutral-800">
+      <SEO 
+        title="Services & Installation Support | Prefab Cabins & PUF Panels"
+        description="Comprehensive insulation distribution, prefabricated site office cabins, structural steel framing support, and industrial roofing panel installation across Maharashtra."
+        canonicalPath="/services"
+        keywords="Prefab Cabin Supply Pune, Industrial Roofing Installation, PUF Panel Fitting, Structural Fabrication Pune, Eternal Techworks Services"
+      />
       
       {/* PAGE HEADER */}
       <section className="bg-white border-b border-neutral-200/80 py-16">

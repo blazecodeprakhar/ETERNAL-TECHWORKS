@@ -1,9 +1,16 @@
 import React from 'react';
 import { Lock, Eye, CheckCircle2, ShieldCheck } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Privacy = () => {
   return (
     <div className="animate-fadeIn bg-neutral-50 text-neutral-800 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <SEO 
+        title="Privacy Policy | Data Protection & Inquiry Security"
+        description="Privacy policy and data handling guidelines for customer inquiries, structural specifications, and contact details submitted to Eternal Techworks."
+        canonicalPath="/privacy"
+        keywords="Privacy Policy Eternal Techworks, Data Protection Pune"
+      />
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header Hero */}
