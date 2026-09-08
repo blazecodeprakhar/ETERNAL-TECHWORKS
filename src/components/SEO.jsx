@@ -40,6 +40,14 @@ const SEO = ({ title, description, canonicalPath = '', keywords }) => {
         metaKeywords.setAttribute('content', keywords);
       }
     }
+
+    // 6. Trigger Google Analytics page_view event
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'G-0KNLFD6X8J', {
+        page_title: fullTitle,
+        page_path: canonicalPath || window.location.pathname
+      });
+    }
   }, [title, description, canonicalPath, keywords]);
 
   return null;
