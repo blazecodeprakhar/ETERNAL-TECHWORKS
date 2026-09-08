@@ -1,0 +1,4 @@
+# Netlify redirect rule for Single Page Applications (React / Vite)
+# Directs all route requests to /index.html with HTTP status 200
+
+/*    /index.html   200
